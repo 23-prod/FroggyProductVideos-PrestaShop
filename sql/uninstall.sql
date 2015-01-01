@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS `@PREFIX@fpv_link`;
+DROP TABLE IF EXISTS `@PREFIX@fpv_video_link`;
