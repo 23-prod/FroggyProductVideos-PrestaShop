@@ -1,0 +1,21 @@
+{
+	"tab" : "others",
+	"version": "1.0.0",
+	"need_instance": 0,
+
+    "hooks": {
+        "all" : [
+            "BackOfficeHeader",
+            "productTab",
+            "productTabContent"
+        ],
+        "1.4" : [ "extraLeft" ],
+        "1.5" : [ "displayLeftColumnProduct" ],
+        "1.6" : [ "displayProductButtons" ]
+    },
+
+    "sql" : {
+        "install" : [ "install.sql" ],
+        "uninstall" : [ "uninstall.sql" ]
+    }
+}
