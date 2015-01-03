@@ -92,6 +92,48 @@ class FroggyProductVideosLinkObject extends ObjectModel
 
 	/*** End of Retrocompatibility 1.4 ***/
 
+	public static function getEmbedCode($infos)
+	{
+		$videos_sources = array(
+			'youtube.com' => '<iframe width="{WIDTH}" height="{HEIGHT}" src="//www.youtube.com/embed/{KEY}?vq=hd1080" frameborder="0" allowfullscreen></iframe>',
+			'vimeo.com' => '<iframe src="//player.vimeo.com/video/{KEY}?portrait=0&amp;badge=0" width="{WIDTH}" height="{HEIGHT}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>',
+			'dailymotion.com' => '<iframe frameborder="0" width="{WIDTH}" height="{HEIGHT}" src="//www.dailymotion.com/embed/video/{KEY}?logo=0&quality=720" allowfullscreen></iframe>',
+		);
+
+		foreach ($videos_sources as $domain => $embed)
+		{
+			if (strpos($infos['link'], $domain))
+			{
+				if ($domain == 'youtube.com')
+				{
+					$parse = parse_url($infos['link']);
+					parse_str($parse['query'], $output);
+					$key = $output['v'];
+				}
+				else if ($domain == 'vimeo.com')
+				{
+					$parse = explode('/', $infos['link']);
+					$parse = $parse[count($parse) - 1];
+					$parse = explode('?', $parse);
+					$key = $parse[0];
+				}
+				else if ($domain == 'dailymotion.com')
+				{
+					$parse = explode('/', $infos['link']);
+					$parse = $parse[count($parse) - 1];
+					$parse = explode('_', $parse);
+					$key = $parse[0];
+				}
+				$width = Configuration::get('FC_PV_WIDTH');
+				$height = Configuration::get('FC_PV_HEIGHT');
+				$infos['domain'] = $domain;
+				$infos['embed'] = str_replace(array('{KEY}', '{WIDTH}', '{HEIGHT}'), array($key, $width, $height), $embed);
+			}
+		}
+
+		return $infos;
+	}
+
 	public static function getVideoLinks($id_product, $id_lang = false)
 	{
 		// Get links
@@ -104,7 +146,7 @@ class FroggyProductVideosLinkObject extends ObjectModel
 
 		// If one lang is requested, we send back the exact array
 		if ($id_lang !== false)
-			return array_shift($links);
+			return self::getEmbedCode(array_shift($links));
 
 		$links_by_isocode = array();
 		foreach ($links as $l)

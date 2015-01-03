@@ -25,7 +25,7 @@ class FroggyProductVideosHookDisplayBackOfficeHeaderProcessor extends FroggyHook
 	{
 		$values = Tools::getValue('froggyproductvideos');
 		foreach ($languages as $l)
-			if (isset($values[$l['iso_code']]))
+			if (isset($values[$l['iso_code']]) && !empty($values[$l['iso_code']]))
 			{
 				$fpv = new FroggyProductVideosLinkObject();
 				if (isset($links[$l['iso_code']]) && $links[$l['iso_code']]['id_fpv_video_link'] > 0)

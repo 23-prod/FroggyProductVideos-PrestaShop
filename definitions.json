@@ -3,19 +3,15 @@
 	"version": "1.0.0",
 	"need_instance": 0,
 
-    "hooks": {
-        "all" : [
-            "BackOfficeHeader",
-            "productTab",
-            "productTabContent"
-        ],
-        "1.4" : [ "extraLeft" ],
-        "1.5" : [ "displayLeftColumnProduct" ],
-        "1.6" : [ "displayProductButtons" ]
-    },
+    "hooks": { "all" : [ "BackOfficeHeader", "displayProductTab", "displayProductTabContent" ] },
 
     "sql" : {
         "install" : [ "install.sql" ],
         "uninstall" : [ "uninstall.sql" ]
+    },
+
+    "configurations" : {
+        "FC_PV_WIDTH" : "560",
+        "FC_PV_HEIGHT" : "315"
     }
 }
