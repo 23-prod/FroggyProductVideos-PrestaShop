@@ -23,7 +23,8 @@ $(document).ready(function() {
 
 	$('.separation').each(function () {
 		if (froggyproductvideos_flag == 2)
-			$(this).after('<table cellpadding="5" style="width: 50%; float: left; margin-right: 20px; border-right: 1px solid #CCCCCC;"><tbody><tr><td class="col-left"><label>' + label_product_video_froggy + ' ' + key.toUpperCase() + ':</label></td><td style="padding-bottom:5px;"></td></tr></tbody></table>');
+			for (var key in value_product_video_froggy)
+				$(this).after('<table cellpadding="5" style="width: 50%; float: left; margin-right: 20px; border-right: 1px solid #CCCCCC;"><tbody><tr><td class="col-left"><label>' + label_product_video_froggy + ' ' + key.toUpperCase() + ':</label></td><td style="padding-bottom:5px;"><input name="froggyproductvideos[' + key + ']" type="text" value="' + value_product_video_froggy[key] + '" style="width:320px" /> </td></tr></tbody></table>');
 		froggyproductvideos_flag++;
 	});
 });

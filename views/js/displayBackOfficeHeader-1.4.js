@@ -17,10 +17,9 @@
  *  @copyright  2013-2014 Froggy Commerce
  */
 
-var froggyproductvideos_flag = 0;
-
 $(document).ready(function() {
-	$("input[name='reference']").parent().parent().prev().before('<tr><td class="col-left">' + label_product_video_froggy + ' ' + key.toUpperCase() + ':</td><td style="padding-bottom:5px;"></td></tr>');
+	for (var key in value_product_video_froggy)
+		$("#seo").parent().parent().next().after('<tr><td class="col-left">' + label_product_video_froggy + ' ' + key.toUpperCase() + ':</td><td style="padding-bottom:5px;"><input name="froggyproductvideos[' + key + ']" type="text" value="' + value_product_video_froggy[key] + '" style="width:330px" /> </td></tr>');
 });
 
 
