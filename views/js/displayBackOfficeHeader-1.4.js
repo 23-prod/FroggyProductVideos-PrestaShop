@@ -18,8 +18,10 @@
  */
 
 $(document).ready(function() {
+	$("#seo").parent().parent().next().next().next().after('<tr><td style="padding-bottom:5px;" colspan="2"><hr style="width:100%;"></td></tr>');
 	for (var key in value_product_video_froggy)
-		$("#seo").parent().parent().next().after('<tr><td class="col-left">' + label_product_video_froggy + ' ' + key.toUpperCase() + ':</td><td style="padding-bottom:5px;"><input name="froggyproductvideos[' + key + ']" type="text" value="' + value_product_video_froggy[key] + '" style="width:330px" /> </td></tr>');
+		$("#seo").parent().parent().next().next().next().after('<tr><td class="col-left">' + label_product_video_froggy + ' ' + key.toUpperCase() + ':</td><td style="padding-bottom:5px;"><input name="froggyproductvideos[' + key + ']" type="text" value="' + value_product_video_froggy[key] + '" style="width:330px" /> </td></tr>');
+	$("#seo").parent().parent().next().next().next().after('<tr><td style="padding-bottom:5px;" colspan="2"><hr style="width:100%;"></td></tr>');
 });
 
 
