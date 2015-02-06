@@ -38,7 +38,10 @@ class FroggyProductVideos extends FroggyModule
 		$this->description = $this->l('Allow you to add videos to your products');
 	}
 
-	// Retrocompat 1.4 / 1.5
+	/*
+	 *  Retrocompat 1.4
+	 */
+	public function getContent() { return $this->hookGetContent(array()); }
 	public function hookBackOfficeHeader($params) { return $this->hookDisplayBackOfficeHeader($params); }
 	public function hookExtraLeft($params) { return $this->hookDisplayLeftColumnProduct($params); }
 	public function hookDisplayProductButtons($params) { return $this->hookDisplayLeftColumnProduct($params); }
