@@ -19,6 +19,6 @@
 
 <li>
 	<a href="#idTabfroggyproductvideos" class="idTabHrefShort">
-		{l s='Product video:' mod='froggyproductvideos'}
+		{l s='Product video' mod='froggyproductvideos'}
 	</a>
 </li>

@@ -17,7 +17,7 @@
 *  @copyright  2013-2015 Froggy Commerce
 *}
 
-<h3 class="page-product-heading">{l s='Product video:' mod='froggyproductvideos'}</h3>
+<h3 class="page-product-heading">{l s='Product video' mod='froggyproductvideos'}</h3>
 
 <div id="idTabfroggyproductvideos">
     {$froggyproductvideos.link.embed}
